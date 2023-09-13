@@ -24,5 +24,6 @@ public class BookingService {
     public Booking addBooking(Booking booking) {
         return bookingRepo.save(booking);
     }
-    
+
+
 }
