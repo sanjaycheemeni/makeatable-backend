@@ -32,10 +32,6 @@ public class FoodController {
     public String upload(@RequestPart MultipartFile img) throws IOException{
         String imgName = img.getOriginalFilename();
         System.out.println(imgName);
-        // Post p = new Post();
-        // p.setTitle(title);
-        // p.setImageName(imgName);
-        // postService.add(p);
         File upl = new File("images/" + imgName);
         upl.createNewFile();
         FileOutputStream fout = new FileOutputStream(upl);
