@@ -38,5 +38,8 @@ public class Food {
     @Column(name="description")
     private String description;
 
+    @Column(name="imageURL")
+    private String imageURL;
+
    
 }
