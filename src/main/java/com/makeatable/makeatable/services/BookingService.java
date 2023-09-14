@@ -33,6 +33,12 @@ public class BookingService {
             Booking newBoooking = optionalBooking.get();
 
             newBoooking.setBooking_id(booking.getBooking_id());
+            newBoooking.setResto_id(booking.getResto_id());
+            newBoooking.setDate_ms(booking.getDate_ms());
+            newBoooking.setStatus(booking.getStatus());
+            newBoooking.setUsername(booking.getUsername());
+            newBoooking.setType(booking.getType());
+            newBoooking.setCount(booking.getCount());
             newBoooking.setUsername(booking.getUsername());
 
             return bookingRepo.save(newBoooking);
