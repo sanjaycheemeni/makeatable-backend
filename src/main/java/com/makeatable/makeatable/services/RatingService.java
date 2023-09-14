@@ -19,6 +19,7 @@ public class RatingService {
         this.ratingRepo = ratingRepo;
     }
 
+    // get all table values
     public List<Rating> getAllRating() {
         return ratingRepo.findAll();
     }
@@ -29,13 +30,15 @@ public class RatingService {
 
     public Rating updateRating(Rating rating, Long id) {
 
-        Optional<Rating> optionalTask = ratingRepo.findById(id);
-        if(optionalTask.isPresent()){
-                Rating rat = optionalTask.get();
-                
-        }else{
-            return null;        }
-        
+        Optional<Rating> optionalRating = ratingRepo.findById(id);
+        if (optionalRating.isPresent()) {
+
+            Rating newRating = optionalRating.get();
+            newRating.setFood_id(rating.getFood_id());
+            newRating.setUsername(rating.getUsername());
+            newRating.setValue(rating.getValue());
+            return ratingRepo.save(newRating);
+        }
         return null;
 
     }
