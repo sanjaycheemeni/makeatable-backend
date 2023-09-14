@@ -39,6 +39,7 @@ public class BookingService {
             newBoooking.setUsername(booking.getUsername());
             newBoooking.setType(booking.getType());
             newBoooking.setCount(booking.getCount());
+            newBoooking.setUsername(booking.getUsername());
 
             return bookingRepo.save(newBoooking);
 

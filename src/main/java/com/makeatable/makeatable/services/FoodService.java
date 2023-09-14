@@ -1,7 +1,9 @@
 package com.makeatable.makeatable.services;
 
 import java.util.List;
+import java.util.Optional;
 
+import org.springframework.scheduling.config.Task;
 import org.springframework.stereotype.Service;
 
 import com.makeatable.makeatable.model.Food;
@@ -30,6 +32,28 @@ public class FoodService {
     public Food addFood(Food food) {
          log.info("Makeatable [food]: Creating new food item in DB");
         return foodrepo.save(food);
+    }
+
+
+    public Food updateFood(Food food,Long id) {
+
+        Optional<Food> optionalTask = foodrepo.findById(id);
+        if (optionalTask.isPresent()) {
+
+            Food newfood = optionalTask.get();
+
+            newfood.setFood_id(food.getFood_id());
+            newfood.setResto_id(food.getFood_id());
+            newfood.setFood_name(food.getFood_name());
+            newfood.setPrice(food.getPrice());
+            newfood.setStatus(food.getStatus());
+            newfood.setDescription(food.getDescription());
+            newfood.setImageURL(food.getImageURL());
+           
+            return foodrepo.save(newfood);
+        }
+        return null;
+       
     }
 
     

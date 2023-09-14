@@ -27,7 +27,7 @@ public class FoodController {
     private final FoodService foodService;
 
 
-    @PostMapping("/upload")
+    @PostMapping("/image")
     @ResponseBody
     public String upload(@RequestPart MultipartFile img) throws IOException{
         String imgName = img.getOriginalFilename();
@@ -41,12 +41,13 @@ public class FoodController {
     }
 
 
+
     @GetMapping("/list")
     public ResponseEntity<Response> getaAllFoods() {
         return ResponseEntity.ok(
                 Response.builder()
                         .timeStamp(now())
-                        .data(of("servers",foodService.getAllFoods()))
+                        .data(of("foods",foodService.getAllFoods()))
                         .message("list of all foods")
                         .status(OK)
                         .statusCode(OK.value())
@@ -62,6 +63,22 @@ public class FoodController {
                 Response.builder()
                         .timeStamp(now())
                         .data(of("Added food ",foodService.addFood(food)))
+                        .message("Food Item Added")
+                        .status(OK)
+                        .statusCode(OK.value())
+                        .build()
+
+        );
+    }
+
+
+    @PutMapping
+    public ResponseEntity<Response> updateFood( @RequestBody Food food,@PathVariable("id") Long id) {
+        System.out.println(food);
+        return ResponseEntity.ok(
+                Response.builder()
+                        .timeStamp(now())
+                        .data(of("Added food ",foodService.updateFood(food,id)))
                         .message("Food Item Added")
                         .status(OK)
                         .statusCode(OK.value())
