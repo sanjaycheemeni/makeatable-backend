@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Slf4j
@@ -23,6 +24,21 @@ public class BookingService {
     }
     public Booking addBooking(Booking booking) {
         return bookingRepo.save(booking);
+    }
+
+    public Booking updateBooking(Booking booking, Long id) {
+
+        Optional<Booking> optionalBooking = bookingRepo.findById(id);
+        if (optionalBooking.isPresent()) {
+            Booking newBoooking = optionalBooking.get();
+
+            newBoooking.setBooking_id(booking.getBooking_id());
+            newBoooking.setUsername(booking.getUsername());
+
+            return bookingRepo.save(newBoooking);
+
+        }
+        return null;
     }
 
 
