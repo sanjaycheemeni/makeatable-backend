@@ -12,7 +12,7 @@ public class ManagerService {
     public final ManagerRepo managerRepo;
 
     public ManagerService(ManagerRepo managerRepo) {
-        this.managerepo = managerepo;
+        this.managerRepo = managerRepo;
     }
     public List<Manager> getAllManager() {
         return managerRepo.findAll();
