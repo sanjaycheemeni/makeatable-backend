@@ -26,7 +26,17 @@ import lombok.RequiredArgsConstructor;
 public class RatingController {
 
     private final RatingService ratingService;
+    @GetMapping("/{id}")public ResponseEntity<Response> getrating(@PathVariable Long id){
 
+        return ResponseEntity.ok(
+                Response.builder()
+                        .timeStamp(now())
+                        .data(of("Ratings", ratingService.getAllRating()))
+                        .message("list of all ratings")
+                        .status(OK)
+                        .statusCode(OK.value())
+                        .build());
+    }
     @GetMapping("/list")
     public ResponseEntity<Response> getaAllRatings() {
         return ResponseEntity.ok(
