@@ -1,8 +1,24 @@
 package com.makeatable.makeatable.controller;
 
+import com.makeatable.makeatable.model.Manager;
+import com.makeatable.makeatable.model.Rating;
+import com.makeatable.makeatable.services.ManagerService;
+import com.makeatable.makeatable.util.Response;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import javax.xml.transform.OutputKeys;
+
+import static java.time.LocalDateTime.now;
+import static java.util.Map.of;
+import static org.springframework.http.HttpStatus.OK;
+
+@RestController
+@RequestMapping("/api/rating")
+@RequiredArgsConstructor
 public class ManagerController {
-<<<<<<< Updated upstream
-=======
+
     private final ManagerService managerService;
 
     @GetMapping("/list")
@@ -36,6 +52,7 @@ public class ManagerController {
 
 
         public  ResponseEntity<Response> updatemanager(@RequestBody Manager manager, @PathVariable("id") Long id){
+
         return ResponseEntity.ok(
                 Response.builder()
                         .timeStamp(now())
@@ -47,5 +64,7 @@ public class ManagerController {
 
         );
     }
->>>>>>> Stashed changes
+
 }
+
+
