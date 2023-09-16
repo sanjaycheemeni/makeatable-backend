@@ -60,4 +60,6 @@ public class Manager {
     @Column(name="pro_img_url")
     private String pro_img_url;
 
+
+
 }

@@ -39,6 +39,18 @@ public class RatingController {
                         .build());
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Response> getaAllRatings(@PathVariable String food_id) {
+        return ResponseEntity.ok(
+                Response.builder()
+                        .timeStamp(now())
+                        .data(of("Rating of id: "+food_id, ratingService.getRating(food_id)))
+                        .message("list of all ratings")
+                        .status(OK)
+                        .statusCode(OK.value())
+                        .build());
+    }
+
     @PostMapping
     @ResponseBody
     public ResponseEntity<Response> addRating(@RequestBody Rating rating) {
