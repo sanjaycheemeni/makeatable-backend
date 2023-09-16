@@ -49,7 +49,7 @@ public class RatingController {
                         .build());
     }
 
-    @PostMapping
+    @PostMapping("/create")
     @ResponseBody
     public ResponseEntity<Response> addRating(@RequestBody Rating rating) {
         return ResponseEntity.ok(
@@ -64,7 +64,7 @@ public class RatingController {
         );
     }
 
-    @PutMapping
+    @PutMapping("/update")
     public ResponseEntity<Response> updateRating(@RequestBody Rating rating, @PathVariable("id") Long id) {
         // System.out.println(food);
         return ResponseEntity.ok(
