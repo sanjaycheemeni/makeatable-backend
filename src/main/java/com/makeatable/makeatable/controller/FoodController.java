@@ -87,4 +87,19 @@ public class FoodController {
         );
     }
 
+
+    @GetMapping("/top5rated")
+    public ResponseEntity<Response> getTop5FoodDetails() {
+        return ResponseEntity.ok(
+                Response.builder()
+                        .timeStamp(now())
+                        .data(of("Added food ",foodService.getTop5FoodDetailsWithAvgRating()))
+                        .message("Food Item Added")
+                        .status(OK)
+                        .statusCode(OK.value())
+                        .build()
+
+        );
+    }
+
 }

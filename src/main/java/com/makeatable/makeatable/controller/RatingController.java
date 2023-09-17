@@ -80,4 +80,18 @@ public class RatingController {
 
         );
     }
+
+    @GetMapping
+    public ResponseEntity<Response> getTop5RatingFood(){
+        return ResponseEntity.ok(
+                Response.builder()
+                        .timeStamp(now())
+                        .data(of("Updated Rating ", ratingService.findTop5FoodIdsByAverageValue()))
+                        .message("rating updated")
+                        .status(OK)
+                        .statusCode(OK.value())
+                        .build()
+
+        );
+    }
 }
