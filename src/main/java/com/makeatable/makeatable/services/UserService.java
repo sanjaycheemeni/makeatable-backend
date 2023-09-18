@@ -5,10 +5,10 @@ import org.springframework.stereotype.Service;
 import com.makeatable.makeatable.model.User;
 import com.makeatable.makeatable.repository.UserRepo;
 
-import lombok.extern.slf4j.Slf4j;
+// import lombok.extern.slf4j.Slf4j;
 
 @Service
-@Slf4j
+// @Slf4j
 public class UserService {
     
      public final UserRepo userRepo;
@@ -19,7 +19,6 @@ public class UserService {
 
 
     public User addUser(User user){
-        log.info("Added new User!!");
         return userRepo.save(user);
     }
 }

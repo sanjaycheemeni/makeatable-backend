@@ -49,7 +49,23 @@ public class RatingController {
                         .build());
     }
 
+
     @PostMapping("/create")
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Response> getaAllRatings(@PathVariable String food_id) {
+        return ResponseEntity.ok(
+                Response.builder()
+                        .timeStamp(now())
+                        .data(of("Rating of id: "+food_id, ratingService.getRating(food_id)))
+                        .message("list of all ratings")
+                        .status(OK)
+                        .statusCode(OK.value())
+                        .build());
+    }
+
+    @PostMapping
+
     @ResponseBody
     public ResponseEntity<Response> addRating(@RequestBody Rating rating) {
         return ResponseEntity.ok(
@@ -71,6 +87,20 @@ public class RatingController {
                 Response.builder()
                         .timeStamp(now())
                         .data(of("Updated Rating ", ratingService.updateRating(rating, id)))
+                        .message("rating updated")
+                        .status(OK)
+                        .statusCode(OK.value())
+                        .build()
+
+        );
+    }
+
+    @GetMapping
+    public ResponseEntity<Response> getTop5RatingFood(){
+        return ResponseEntity.ok(
+                Response.builder()
+                        .timeStamp(now())
+                        .data(of("Updated Rating ", ratingService.findTop5FoodIdsByAverageValue()))
                         .message("rating updated")
                         .status(OK)
                         .statusCode(OK.value())

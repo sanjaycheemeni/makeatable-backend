@@ -10,7 +10,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity
 @Table(name = "Booking")
-public class Booking {
+public class  Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long uid = (long) 0;

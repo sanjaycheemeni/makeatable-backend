@@ -56,6 +56,10 @@ public class FoodService {
        
     }
 
+    public List<Object[]> getTop5FoodDetailsWithAvgRating() {
+        return foodrepo.findTop5FoodDetailsWithAvgRating();
+    }
+
     
 
 }

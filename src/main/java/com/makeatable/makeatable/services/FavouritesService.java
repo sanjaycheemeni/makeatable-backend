@@ -37,7 +37,7 @@ public class FavouritesService {
             Favourites newfav = optionalfav.get();
 
             newfav.setFood_id(favourites.getFood_id());
-            newfav.setUser_name(favourites.getUser_name());
+            newfav.setUsername(favourites.getUsername());
 
             return favouritesRepo.save(newfav);
             
