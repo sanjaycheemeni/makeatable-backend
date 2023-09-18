@@ -26,7 +26,17 @@ import lombok.RequiredArgsConstructor;
 public class RatingController {
 
     private final RatingService ratingService;
+    @GetMapping("/{id}")public ResponseEntity<Response> getrating(@PathVariable Long id){
 
+        return ResponseEntity.ok(
+                Response.builder()
+                        .timeStamp(now())
+                        .data(of("Ratings", ratingService.getAllRating()))
+                        .message("list of all ratings")
+                        .status(OK)
+                        .statusCode(OK.value())
+                        .build());
+    }
     @GetMapping("/list")
     public ResponseEntity<Response> getaAllRatings() {
         return ResponseEntity.ok(
@@ -38,6 +48,9 @@ public class RatingController {
                         .statusCode(OK.value())
                         .build());
     }
+
+
+    @PostMapping("/create")
 
     @GetMapping("/{id}")
     public ResponseEntity<Response> getaAllRatings(@PathVariable String food_id) {
@@ -52,6 +65,7 @@ public class RatingController {
     }
 
     @PostMapping
+
     @ResponseBody
     public ResponseEntity<Response> addRating(@RequestBody Rating rating) {
         return ResponseEntity.ok(
@@ -66,7 +80,7 @@ public class RatingController {
         );
     }
 
-    @PutMapping
+    @PutMapping("/update")
     public ResponseEntity<Response> updateRating(@RequestBody Rating rating, @PathVariable("id") Long id) {
         // System.out.println(food);
         return ResponseEntity.ok(

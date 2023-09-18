@@ -1,70 +1,67 @@
 package com.makeatable.makeatable.controller;
 
+
+import com.makeatable.makeatable.model.Booking;
 import com.makeatable.makeatable.model.Manager;
-import com.makeatable.makeatable.model.Rating;
-import com.makeatable.makeatable.services.ManagerService;
+import com.makeatable.makeatable.services.BookingService;
 import com.makeatable.makeatable.util.Response;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.xml.transform.OutputKeys;
 
-import static java.time.LocalDateTime.now;
 import static java.util.Map.of;
+
+import static io.micrometer.common.KeyValue.of;
+import static java.time.LocalDateTime.now;
 import static org.springframework.http.HttpStatus.OK;
 
 @RestController
-@RequestMapping("/api/rating")
+@RequestMapping("/api/booking")
 @RequiredArgsConstructor
-public class ManagerController {
-
-    private final ManagerService managerService;
+public class BookingController {
+    private final BookingService bookingService;
 
     @GetMapping("/list")
-    public ResponseEntity<Response> getAllManager() {
+    public ResponseEntity<Response> getAllBooking() {
         return ResponseEntity.ok(
                 Response.builder()
                         .timeStamp(now())
-                        .data(of("", managerService.getAllManager()))
+                        .data(of("", bookingService.getAllBooking()))
                         .message("list of all managers")
                         .status(OK)
                         .statusCode(OK.value())
                         .build());
-
     }
 
     @PostMapping("/create")
     @ResponseBody
-    public ResponseEntity<Response> addManager(@RequestBody Manager manager) {
+    public ResponseEntity<Response> addBooking(@RequestBody Booking booking) {
         return ResponseEntity.ok(
                 Response.builder()
                         .timeStamp(now())
-                        .data(of("Added Manager", managerService.addManager(manager)))
-                        .message("Manager added")
+                        .data(of("Added Booking", bookingService.addBooking(booking)))
+                        .message("Booking added")
                         .status(OK)
                         .statusCode(OK.value())
                         .build()
 
-
         );
+
     }
 
 
-        public  ResponseEntity<Response> updatemanager(@RequestBody Manager manager, @PathVariable("id") Long id){
-
+    public ResponseEntity<Response> updateBooking(@RequestBody Booking booking, @PathVariable("id") Long id){
         return ResponseEntity.ok(
                 Response.builder()
                         .timeStamp(now())
-                        .data(of("Updated manager", managerService.updateManager( id,manager)))
-                        .message("manager updated")
+                        .data(of("Update booking", bookingService.updateBooking(booking, id)))
+                        .message("Booking update")
                         .status(OK)
                         .statusCode(OK.value())
-                       .build()
-
+                        .build()
         );
+
     }
 
 }
-
-
