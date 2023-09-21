@@ -6,9 +6,10 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-
+@Data
 @Entity
 @Table(name = "user_auth")
 @NoArgsConstructor
@@ -25,34 +26,6 @@ public class Auth {
     @Column(name = "password")
     private String password;
 
-    @Column(name = "user_type")
-    private String user_type;
-
-
-    /* ==================================== */
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getUser_type() {
-        return user_type;
-    }
-
-    public void setUser_type(String user_type) {
-        this.user_type = user_type;
-    }
-
+    @Column(name = "usertype")
+    private String usertype;
 }

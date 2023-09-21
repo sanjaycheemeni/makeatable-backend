@@ -41,19 +41,19 @@ public class ManagerService {
             Manager newmManager = optionalRating.get();
 
             
-            newmManager.setResto_id(manager.getResto_id());
-            newmManager.setResto_name(manager.getResto_name());
-            newmManager.setLoc_name(manager.getLoc_name());
-            newmManager.setLoc_long(manager.getLoc_long());
-            newmManager.setLoc_lat(manager.getLoc_lat());
+            newmManager.setRestoid(manager.getRestoid());
+            newmManager.setRestoname(manager.getRestoname());
+            newmManager.setLocname(manager.getLocname());
+            newmManager.setLoclong(manager.getLoclong());
+            newmManager.setLoclat(manager.getLoclat());
             newmManager.setPhone(manager.getPhone());
-            newmManager.setRoom_type(manager.getRoom_type());
-            newmManager.setStart_time(manager.getStart_time());
-            newmManager.setEnd_time(manager.getEnd_time());
-            newmManager.setResto_type(manager.getResto_type());
+            newmManager.setRoomtype(manager.getRoomtype());
+            newmManager.setStarttime(manager.getStarttime());
+            newmManager.setEndtime(manager.getEndtime());
+            newmManager.setRestotype(manager.getRestotype());
             newmManager.setCapacity(manager.getCapacity());
             newmManager.setStatus(manager.getStatus());
-            newmManager.setPro_img_url(manager.getPro_img_url());
+            newmManager.setProimgurl(manager.getProimgurl());
 
             
             return managerRepo.save(newmManager);

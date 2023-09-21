@@ -6,9 +6,9 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import com.makeatable.makeatable.model.Favourites;
-import com.makeatable.makeatable.model.Rating;
+
 import com.makeatable.makeatable.repository.FavouritesRepo;
-import com.makeatable.makeatable.repository.FavouritesRepo;
+
 
 
 
@@ -36,7 +36,7 @@ public class FavouritesService {
         if (optionalfav.isPresent()) {
             Favourites newfav = optionalfav.get();
 
-            newfav.setFood_id(favourites.getFood_id());
+            newfav.setFoodid(favourites.getFoodid());
             newfav.setUsername(favourites.getUsername());
 
             return favouritesRepo.save(newfav);

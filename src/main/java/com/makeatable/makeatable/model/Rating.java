@@ -21,7 +21,7 @@ public class Rating {
     @Column(name="username")
     private String username;
 
-    @Column(name="food_id")
+    @Column(name="foodid")
     private String food_id;
 
     @Column(name="value")

@@ -14,15 +14,17 @@ public class Favourites {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long uid = (long) 0;
+    private long uid = 0;
 
-    @Column(name="food_id")
-    private String food_id;
+    @Column(name="foodid")
+    private String foodid;
 
     @Column(name="username")
     private String username;
 
 
+    public Object getFoodid() {
+        return null;
 
-
+    }
 }

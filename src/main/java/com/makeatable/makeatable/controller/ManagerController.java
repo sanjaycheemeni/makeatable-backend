@@ -15,13 +15,13 @@ import static java.util.Map.of;
 import static org.springframework.http.HttpStatus.OK;
 
 @RestController
-@RequestMapping("/api/rating")
+//@RequestMapping("/api/rating")
 @RequiredArgsConstructor
 public class ManagerController {
 
     private final ManagerService managerService;
 
-    @GetMapping("/list")
+//    @GetMapping("/list")
     public ResponseEntity<Response> getAllManager() {
         return ResponseEntity.ok(
                 Response.builder()

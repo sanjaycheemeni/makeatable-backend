@@ -3,7 +3,6 @@ package com.makeatable.makeatable.services;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.scheduling.config.Task;
 import org.springframework.stereotype.Service;
 
 import com.makeatable.makeatable.model.Food;
@@ -60,6 +59,8 @@ public class FoodService {
         return foodrepo.findTop5FoodDetailsWithAvgRating();
     }
 
-    
 
+    public List<Food> searchFoodByName(String foodName) {
+        return null;
+    }
 }

@@ -21,35 +21,35 @@ public class Manager {
     @Column(name="username")
     private String username;
 
-    @Column(name="resto_id")
-    private String resto_id;
+    @Column(name="restoid")
+    private String restoid;
 
-    @Column(name="resto_name")
-    private String resto_name;
+    @Column(name="restoname")
+    private String restoname;
 
-    @Column(name="loc_name")
-    private String loc_name;
+    @Column(name="locname")
+    private String locname;
 
-    @Column(name="loc_long")
-    private String loc_long;
+    @Column(name="loclong")
+    private String loclong;
 
-    @Column(name="loc_lat")
-    private String loc_lat;
+    @Column(name="loclat")
+    private String loclat;
 
     @Column(name="phone")
     private String phone;
 
-    @Column(name="room_type")
-    private String room_type;
+    @Column(name="roomtype")
+    private String roomtype;
 
-    @Column(name="start_time")
-    private String start_time;
+    @Column(name="starttime")
+    private String starttime;
 
-    @Column(name="end_time")
-    private String end_time;
+    @Column(name="endtime")
+    private String endtime;
 
-    @Column(name="resto_type")
-    private String resto_type;
+    @Column(name="restotype")
+    private String restotype;
 
     @Column(name="capacity")
     private String capacity;
@@ -57,8 +57,8 @@ public class Manager {
     @Column(name="status")
     private String status;
 
-    @Column(name="pro_img_url")
-    private String pro_img_url;
+    @Column(name="proimgurl")
+    private String proimgurl;
 
 
 

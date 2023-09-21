@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -12,17 +14,17 @@ import lombok.Setter;
 @Table(name = "Booking")
 public class  Booking {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long uid = (long) 0;
 
-    @Column(name="booking_id")
+    @Column(name="bookingid")
     private String booking_id;
 
-    @Column(name="resto_id")
+    @Column(name="restoid")
     private String resto_id;
 
-    @Column(name="date_ms")
-    private String date_ms;
+    @Column(name="datems")
+    private Date date_ms;
 
     @Column(name="status")
     private String status;
